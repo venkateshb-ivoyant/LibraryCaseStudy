@@ -56,11 +56,11 @@ public class AdminController {
             existingBook.setQuantity(books.getQuantity());
             int quantity = books.getQuantity();
             if (quantity <= 0) {
-                existingBook.setStatus(Status.UNAVAILABLE);
+                existingBook.setStatus(Status.AVAILABLE_ALLOCATED);
             }else {
                 existingBook.setStatus(Status.AVAILABLE);
             }
-            
+
             bookRepository.save(existingBook);
 
             return ResponseEntity.ok("Book updated successfully.");
