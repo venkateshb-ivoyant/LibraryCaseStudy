@@ -54,8 +54,13 @@ public class AdminController {
             existingBook.setOriginalReleaseDate(books.getOriginalReleaseDate());
             existingBook.setUniqueBookId(books.getUniqueBookId());
             existingBook.setQuantity(books.getQuantity());
-            existingBook.setStatus(books.getStatus());
-
+            int quantity = books.getQuantity();
+            if (quantity <= 0) {
+                existingBook.setStatus(Status.UNAVAILABLE);
+            }else {
+                existingBook.setStatus(Status.AVAILABLE);
+            }
+            
             bookRepository.save(existingBook);
 
             return ResponseEntity.ok("Book updated successfully.");

@@ -84,7 +84,6 @@ public class BookIssueController {
             Books book = bookIssue.getBooks();
             Student student = bookIssue.getStudent();
 
-
             // Update book quantity and remove book issue from student's list
             book.setQuantity(book.getQuantity() + 1);
             book.setStatus(Status.AVAILABLE);
@@ -112,9 +111,6 @@ public class BookIssueController {
                 bookIssues1.add(bookIssue);
             }
         }
-
-
         return ResponseEntity.ok(bookIssues1);
     }
-
 }
